@@ -1,5 +1,7 @@
 # Harness Registry
 
+**Status: Experimental**
+
 A curated directory of hosted Noe Harness extensions. This repository records
 **where** an extension lives. Each extension's own `noeraven-extension.json`
 is the source of truth for its version, name, description, commands, and themes.
