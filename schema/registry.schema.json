@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/noeraven/harness-registry/main/schema/registry.schema.json",
+  "title": "Noe Harness extension registry v1",
+  "description": "A directory of extension identities and public GitHub repositories. Release data lives in each extension manifest.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registryVersion", "extensions"],
+  "properties": {
+    "registryVersion": {
+      "const": 1
+    },
+    "extensions": {
+      "type": "array",
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "repository"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100,
+            "pattern": "^[a-z0-9][a-z0-9-]*\\.[a-z0-9][a-z0-9-]*$"
+          },
+          "repository": {
+            "type": "string",
+            "pattern": "^https://github\\.com/[A-Za-z0-9][A-Za-z0-9-]*/[A-Za-z0-9._-]+$"
+          }
+        }
+      }
+    }
+  }
+}
